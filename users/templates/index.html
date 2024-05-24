@@ -1,0 +1,93 @@
+{% load static tailwind_tags %}<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>Homepage</title>
+		<meta charset="UTF-8" />
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1.0" />
+		<meta
+			http-equiv="X-UA-Compatible"
+			content="ie=edge" />
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+		<link
+			href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.css"
+			rel="stylesheet" />
+		<link
+			rel="stylesheet"
+			href="{% static 'css/style.css' %}" />
+		{% tailwind_css %}
+	</head>
+
+	<body class="bg-violet-950 font-sans leading-normal tracking-normal">
+		{% include 'includes/navbar.html' %}
+
+		<section
+			id="aboutus"
+			class="py-32 h-screen px-4">
+			<div class="container mx-auto flex flex-col md:flex-row items-center justify-between">
+				<!-- Left column: Image -->
+				<div class="md:w-1/2 mb-8 md:mb-0">
+					<img
+						src="{% static 'img/bg.png' %}"
+						alt="Image"
+						class="w-full md:mx-auto md:max-w-md" />
+				</div>
+
+				<!-- Right column: Title, description list, and button -->
+				<div class="md:w-1/2">
+					<h2 class="text-5xl font-bold mb-4 text-white">
+						Welcome to
+						<span class="text-cyan-400">KNHS</span>
+						WEB APPLICATION
+					</h2>
+					<p class="my-5 text-white">
+						<b class="text-cyan-400 underline">Disclaimer:</b>
+						The content of this page is for educational purposes only, The educational forum provided on this platform
+						is intended for informational purposes only as part of the requirement of the developer subject IT310.
+					</p>
+					<ol class="mb-10 list-outside">
+						<li class="flex items-center mb-4">
+							<strong
+								class="text-cyan-400 text-lg font-semibold flex items-center justify-center mr-3">
+								<i class="fas fa-user-tie    "></i>
+							</strong>
+							<span class="text-white">
+								Welcome to Kabatan National High School Educational Forum, A platform dedicated to fostering knowledge
+								and discussion in the field of education
+							</span>
+						</li>
+						
+						<li class="">
+							<a href="https://globalschoolsforum.org" target="_blank" class="flex items-center mb-4">
+							<strong
+								class="text-cyan-400 text-lg font-semibold flex items-center justify-center mr-3">
+								<i class="fa fa-link" aria-hidden="true"></i>
+							</strong>
+							<span class="text-white">Reference: Global School Forum</span>
+							</a>
+						</li>
+					</ol>
+					<a
+						href="{% url 'user_login' %}"
+						class="bg-cyan-700 hover:bg-cyan-400 text-white font-semibold px-4 py-2 mx-4 rounded">
+						<i class="fas fa-door-open"></i>
+						Login
+					</a>
+					<a
+						href="{% url 'register' %}"
+						class="bg-cyan-700 hover:bg-cyan-400 text-white font-semibold px-4 mx-4 py-2 rounded">
+						<i
+							class="fa fa-user-plus"
+							aria-hidden="true"></i>
+						Register
+					</a>
+				</div>
+			</div>
+		</section>
+
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
+	</body>
+</html>

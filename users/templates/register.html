@@ -1,0 +1,158 @@
+{% load static tailwind_tags %}<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>Register</title>
+		<meta charset="UTF-8" />
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1.0" />
+		<meta
+			http-equiv="X-UA-Compatible"
+			content="ie=edge" />
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+		<link
+			href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.css"
+			rel="stylesheet" />
+		<link
+			rel="stylesheet"
+			href="{% static 'css/style.css' %}" />
+		{% tailwind_css %}
+	</head>
+
+	<body class="bg-violet-950 font-sans leading-normal tracking-normal">
+		{% include 'includes/navbar.html' %}
+		<!-- component -->
+		<div class="bg-gray-900/60 flex items-center justify-center h-full">
+			<div class="bg-white p-8 rounded-lg shadow-lg max-w-sm w-full mt-24 mb-24">
+				
+				<h2 class="text-2xl font-semibold text-center mb-4">Register Form</h2>
+				{% for message in messages%} {% if message.level_tag == 'success' %}
+				<p class="text-center text-green-400 font-bold mt-14 text-md">{{message}}</p>
+				{% else %}
+				<p class="text-center text-red-400 font-bold mt-14 text-md">{{message}}</p>
+				{%endif%} {% endfor %}
+				<form method="POST" enctype="multipart/form-data">
+					{% csrf_token %}
+					<div class="mb-6">
+						<label
+							for="fullname"
+							class="block text-gray-700 text-sm font-semibold mb-2">
+							Full Name
+						</label>
+						<input
+							type="text"
+							id="fullname"
+							name="fullname"
+							class="form-input w-full px-4 py-2 border rounded-lg text-gray-700 focus:ring-purple-500"
+							required
+							placeholder="Cardo Dalisay" />
+					</div>
+
+					<div class="flex items-center my-5 justify-evenly">
+						Are you?
+						<div class="flex items-center">
+							<input
+								id="default-radio-1"
+								type="radio"
+								value="Student"
+								name="role"
+								class="w-4 h-4 text-purple-600 bg-gray-100 border-gray-300 focus:ring-purple-500 focus:ring-2" />
+							<label
+								for="default-radio-1"
+								class="ms-2 text-sm font-medium text-gray-900">
+								
+								Student
+							</label>
+						</div>
+						<div class="flex items-center">
+							<input
+								checked
+								id="default-radio-2"
+								type="radio"
+								value="Teacher"
+								name="role"
+								class="w-4 h-4 text-purple-600 bg-gray-100 border-gray-300 focus:ring-purple-500 focus:ring-2" />
+							<label
+								for="default-radio-2"
+								class="ms-2 text-sm font-medium text-gray-900">
+								
+								Teacher
+							</label>
+						</div>
+					</div>
+
+					<div class="mb-4">
+						<label
+							for="email"
+							class="block text-gray-700 text-sm font-semibold mb-2">
+							Email
+						</label>
+						<input
+							type="email"
+							id="email"
+							name="email"
+							class="form-input w-full px-4 py-2 border rounded-lg text-gray-700 focus:ring-purple-500"
+							required
+							placeholder="jay@gmail.com" />
+					</div>
+
+					<div class="mb-6">
+						<label
+							for="password"
+							class="block text-gray-700 text-sm font-semibold mb-2">
+							Password
+						</label>
+						<input
+							type="password"
+							id="password"
+							name="password1"
+							class="form-input w-full px-4 py-2 border rounded-lg text-gray-700 focus:ring-purple-500"
+							required
+							placeholder="••••••••" />
+					</div>
+
+					<div class="mb-6">
+						<label
+							for="password"
+							class="block text-gray-700 text-sm font-semibold mb-2">
+							Repeat Password
+						</label>
+						<input
+							type="password"
+							id="password"
+							name="password2"
+							class="form-input w-full px-4 py-2 border rounded-lg text-gray-700 focus:ring-purple-500"
+							required
+							placeholder="••••••••" />
+						<p class="text-gray-600 text-md mt-3">
+							Already Have Account?
+							<a
+								href="{% url 'user_login' %}"
+								class="text-purple-500 hover:underline">
+								Login
+							</a>
+						</p>
+					</div>
+					<button
+						type="submit"
+						name="submit"
+						class="w-full bg-purple-500 text-white px-4 py-2 rounded-lg hover:bg-purple-600 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-opacity-50">
+						<i class="fa fa-user-plus" aria-hidden="true"></i> Register
+					</button>
+					<p class="text-gray-600 text-xs text-center mt-4">
+						
+						<a
+							href="{% url 'homepage' %}"
+							class="text-purple-500 hover:underline">
+							<i class="fa fa-home" aria-hidden="true"></i> Home
+						</a>
+					</p>
+				</form>
+			</div>
+		</div>
+
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
+	</body>
+</html>
