@@ -45,6 +45,7 @@
 				{{user.first_name}} {% endif %}
 			</li>
 			<br><br>
+			{% if user.is_authenticated %}
 			<li>
 				<a
 					href="{% url 'student_quizzes' %}"
@@ -55,6 +56,9 @@
 					<span class="flex-1 ms-3 whitespace-nowrap">Quizzes</span>
 				</a>
 			</li>
+			{% endif %}
+
+			{% if user.is_authenticated %}
 			<li>
 				<a
 					href="{% url 'student_forum' %}"
@@ -67,6 +71,19 @@
 				</a>
 			</li>
 
+			{% else %}
+			<li>
+				<a
+					href="{% url 'student_forum' %}"
+					class="flex items-center p-2 text-white rounded-lg hover:bg-violet-600 group">
+					<i
+						class="fa-brands fa-threads text-white transition duration-75 group-hover:text-white group-hover"
+						aria-hidden="true"></i>
+					<span class="flex-1 ms-3 whitespace-nowrap">Join Forum</span>
+				
+				</a>
+			</li>
+			{% endif %}
 			<li>
 				<a
 					href="{% url 'logout' %}"

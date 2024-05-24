@@ -74,22 +74,30 @@
 							</a>
 						</p>
 					</div>
-					<button
-						type="submit"
-						name="submit"
-						class="w-full bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50">
-						Login
-					</button>
-					<p class="text-gray-600 text-xs text-center mt-4">
+					<div class="flex flex-col justify-center items-center">
+						<button
+							type="submit"
+							name="submit"
+							class="w-full bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50">
+							Login
+						</button>
+						<p class="text-center my-4">OR</p>
 						<a
-							href="{% url 'homepage' %}"
-							class="text-blue-500 hover:underline">
-							<i
-								class="fa fa-home"
-								aria-hidden="true"></i>
-							Home
+							href="{% url 'student_forum' %}"
+							class="w-full bg-purple-500 text-center text-white px-4 py-2 rounded-lg hover:bg-purple-600 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-opacity-50">
+							Login Later
 						</a>
-					</p>
+						<p class="text-gray-600 text-xs text-center mt-4">
+							<a
+								href="{% url 'homepage' %}"
+								class="text-blue-500 hover:underline">
+								<i
+									class="fa fa-home"
+									aria-hidden="true"></i>
+								Home
+							</a>
+						</p>
+					</div>
 				</form>
 			</div>
 		</div>

@@ -43,6 +43,8 @@
 						<p class="mb-8 text-xs text-white">Creator: {{ quiz.creator.first_name }}</p>
 					</a>
 					<p class="mb-3 font-normal text-white">Number of Items: {{ quiz.questions_set.all.count }}</p>
+
+					
 					{% with quiz.score_set.all as scores %} {% if scores %}
 					<ul class="mb-4">
 						{% for score in scores %}

@@ -198,7 +198,6 @@ def student_lesson(request):
     return render(request, 'student/lesson.html', context)
 
 
-@login_required(login_url='/login')
 def student_forum(request):
    
     # Retrieve all forums with comment counts
